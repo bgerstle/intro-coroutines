@@ -25,6 +25,10 @@ interface GitHubService {
         @Path("owner") owner: String,
         @Path("repo") repo: String
     ): Call<List<User>>
+
+    suspend fun getRepoContributors(owner: String, repo: String): Response<List<User>>
+
+    suspend fun getOrgRepos(org: String): Response<List<Repo>>
 }
 
 @Serializable
